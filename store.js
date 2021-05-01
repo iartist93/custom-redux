@@ -1,4 +1,6 @@
-//======================================== Redux
+//--------------------------------------------------------------//
+// Store
+
 const createStore = (reducer) => {
   let state = undefined;
   let listeners = [];
@@ -24,6 +26,8 @@ const createStore = (reducer) => {
   };
 };
 
+//--------------------------------------------------------------//
+
 const combineReducers = (reducers) => {
   return (state = {}, action) => {
     const newState = {};
@@ -34,7 +38,9 @@ const combineReducers = (reducers) => {
   };
 };
 
-//======================================== Action Creators
+//--------------------------------------------------------------//
+// Action Creators
+
 const addTodo = (todo) => ({
   type: "ADD_TODO",
   todo,
@@ -44,3 +50,5 @@ const addGoal = (goal) => ({
   type: "ADD_GOAL",
   goal,
 });
+
+//--------------------------------------------------------------//

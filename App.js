@@ -63,6 +63,24 @@ store.dispatch(
 );
 
 //-----------------------------------------------------------------
+// Testing Compose
+
+const add5 = (a) => {
+  console.log("add 5 called");
+};
+
+const add15 = (a) => {
+  console.log("add 15 called");
+};
+const mult10 = (a) => {
+  console.log("Multiply 10 called");
+};
+
+const composed = compose(add5, mult10);
+const composed2 = composed(5);
+console.log(composed2);
+
+//-----------------------------------------------------------------
 
 // TODO
 // remove

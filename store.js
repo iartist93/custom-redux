@@ -1,8 +1,12 @@
 //--------------------------------------------------------------//
 // Store
 
-const createStore = (reducer) => {
-  let state = undefined;
+const createStore = (reducer, predefinedState, enhancer) => {
+  if (enhancer && typeof enhancer === "function") {
+    return enhancer(createStore)(reducer, predefinedState);
+  }
+
+  let state = predefinedState;
   let listeners = [];
 
   const getState = () => state;

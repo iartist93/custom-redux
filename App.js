@@ -22,12 +22,23 @@ const goals = (state = [], action) => {
 };
 
 //--------------------------------------------------------------//
+// middlewares
+
+const logger = (store) => (dispatch) => (action) => {
+  console.log(`Logger Said current state ${store.getState()}`);
+  dispatch(action);
+  console.log(`Logger Said current state ${store.getState().todos.length}`);
+};
+
+//--------------------------------------------------------------//
 
 const store = createStore(
   combineReducers({
     todos,
     goals,
-  })
+  }),
+  {},
+  applyMiddlewares(logger)
 );
 
 let state = store.getState();
